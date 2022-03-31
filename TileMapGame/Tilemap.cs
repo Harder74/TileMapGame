@@ -43,9 +43,10 @@ namespace TileMapGame
             int tilesetRows = _tileSetTexture.Height / _tileHeight;
             _tiles = new Rectangle[tilesetColumns * tilesetRows];
 
-            for (int y = 0; y < tilesetColumns; y++)
+            for (int y = 0; y < tilesetRows; y++)
             {
-                for (int x = 0; x < tilesetRows; x++)
+                Console.WriteLine("");
+                for (int x = 0; x < tilesetColumns; x++)
                 {
                     int index = y * tilesetColumns + x;
                     _tiles[index] = new Rectangle(x * _tileWidth, y * _tileHeight, _tileWidth, _tileHeight);

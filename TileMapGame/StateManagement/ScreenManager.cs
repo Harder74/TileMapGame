@@ -34,15 +34,15 @@ namespace TileMapGame.StateManagement
         /// </summary>
         public SpriteBatch SpriteBatch { get; private set; }
 
+
+        public Tilemap _tilemap;
+
         /// <summary>
         /// A SpriteFont shared by all GameScreens
         /// </summary>
         public SpriteFont Font { get; private set; }
 
-        /// <summary>
-        /// A blank texture that can be used by the screens.
-        /// </summary>
-        public List<Texture2D> PowerUpTextures { get; private set; }
+        
 
         /// <summary>
         /// Constructs a new ScreenManager
@@ -56,7 +56,7 @@ namespace TileMapGame.StateManagement
             _graphics.IsFullScreen = true;
             _graphics.PreferredBackBufferWidth = screen.Width;
             _graphics.PreferredBackBufferHeight = screen.Height;
-            PowerUpTextures = new List<Texture2D>();
+            _tilemap = new Tilemap("map.txt");
             _graphics.ApplyChanges();
         }
 
@@ -70,7 +70,7 @@ namespace TileMapGame.StateManagement
             _gameResolution = GameResolution.SixteenToNine;
             _displayStrategy = DisplayStrategy.ScaleToFit;
             DetermineScreenSize();
-
+            
             _isInitialized = true;
         }
 
@@ -80,12 +80,8 @@ namespace TileMapGame.StateManagement
         protected override void LoadContent()
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
-            Font = _content.Load<SpriteFont>("gameplayfont");
-            //var temp = _content.Load<Texture2D>("PowerUpHealth");
-            PowerUpTextures.Add(_content.Load<Texture2D>("PowerUpHealth"));
-            //var temp2 = _content.Load<Texture2D>("PowerUpDamage");
-            PowerUpTextures.Add(_content.Load<Texture2D>("PowerUpDamageFixed"));
-            PowerUpTextures.Add(_content.Load<Texture2D>("PowerFireRateFixed"));
+            Font = _content.Load<SpriteFont>("File");
+            _tilemap.LoadContent(_content);
             // Tell each of the screens to load thier content 
             foreach (var screen in _screens)
             {
@@ -94,7 +90,7 @@ namespace TileMapGame.StateManagement
         }
 
         /// <summary>
-        /// Unloads content for the ScreenManager's screens
+        ///// Unloads content for the ScreenManager's screens
         /// </summary>
         protected override void UnloadContent()
         {
