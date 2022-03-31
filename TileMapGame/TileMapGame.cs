@@ -23,6 +23,7 @@ namespace TileMapGame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private readonly ScreenManager _screenManager;
+        
 
 
         public TileMapGame()
@@ -49,14 +50,14 @@ namespace TileMapGame
 
         protected override void Initialize()
         {
-
+            
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -70,7 +71,7 @@ namespace TileMapGame
         {
             GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+           
 
             base.Draw(gameTime);
         }
