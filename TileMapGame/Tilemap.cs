@@ -21,18 +21,20 @@ namespace TileMapGame
 
         string _filename;
 
-        float scale =3.4f;
+        float scale;
 
-        public Tilemap(string filename)
+        int _screenHeight;
+
+        public Tilemap(string filename, int height)
         {
             _filename = filename;
+            _screenHeight = height;
         }
 
         public void LoadContent(ContentManager content)
         {
             string data = File.ReadAllText(Path.Join(content.RootDirectory, _filename));
             var lines = data.Split('\n');
-
             var tilesetFilename = lines[0].Trim();
             _tileSetTexture = content.Load<Texture2D>(tilesetFilename);
 
@@ -65,13 +67,14 @@ namespace TileMapGame
             {
                 _map[y] = int.Parse(fourthLine[y]);
             }
+            scale = (float)_screenHeight / (_mapHeight * _tileHeight);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            for (int y = 0; y < _mapWidth; y++)
+            for (int y = 0; y < _mapHeight; y++)
             {
-                for (int x = 0; x < _mapHeight; x++)
+                for (int x = 0; x < _mapWidth; x++) 
                 {
                     int index = _map[y * _mapWidth + x] - 1;
                     if (index == -1)

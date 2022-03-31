@@ -56,7 +56,7 @@ namespace TileMapGame.StateManagement
             _graphics.IsFullScreen = true;
             _graphics.PreferredBackBufferWidth = screen.Width;
             _graphics.PreferredBackBufferHeight = screen.Height;
-            _tilemap = new Tilemap("map.txt");
+            _tilemap = new Tilemap("map.txt", screen.Height);
             _graphics.ApplyChanges();
         }
 
