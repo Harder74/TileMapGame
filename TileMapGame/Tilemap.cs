@@ -21,6 +21,8 @@ namespace TileMapGame
 
         string _filename;
 
+        float scale =3.4f;
+
         public Tilemap(string filename)
         {
             _filename = filename;
@@ -76,7 +78,7 @@ namespace TileMapGame
                     {
                         continue;
                     }
-                    spriteBatch.Draw(_tileSetTexture, new Vector2(x * _tileWidth, y * _tileHeight), _tiles[index], Color.White, 0f, Vector2.Zero, 5f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(_tileSetTexture, new Vector2(x * _tileWidth, y * _tileHeight) * scale, _tiles[index], Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
                 }
             }
         }
