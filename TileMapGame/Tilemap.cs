@@ -76,7 +76,7 @@ namespace TileMapGame
                     {
                         continue;
                     }
-                    spriteBatch.Draw(_tileSetTexture, new Vector2(x * _tileWidth, y * _tileHeight), _tiles[index], Color.White);
+                    spriteBatch.Draw(_tileSetTexture, new Vector2(x * _tileWidth, y * _tileHeight), _tiles[index], Color.White, 0f, Vector2.Zero, 5f, SpriteEffects.None, 0f);
                 }
             }
         }
