@@ -88,7 +88,7 @@ namespace TileMapGame.Screens
             var font = ScreenManager.Font;
             // Our player and enemy are both actually just text strings.
             var spriteBatch = ScreenManager.SpriteBatch;
-           
+            var text = "Press ESC to pause game";
             var viewport = ScreenManager.GraphicsDevice.Viewport;
             var viewportSize = new Vector2(viewport.Width, viewport.Height);
 
@@ -96,6 +96,7 @@ namespace TileMapGame.Screens
 
             spriteBatch.Begin();
             ScreenManager._tilemap.Draw(gameTime, spriteBatch);
+            spriteBatch.DrawString(font, text, new Vector2(2*viewport.Width/3, 150), Color.White);
             spriteBatch.End();
 
             // If the game is transitioning on or off, fade it out to black.
