@@ -81,7 +81,7 @@ namespace TileMapGame
                     {
                         continue;
                     }
-                    spriteBatch.Draw(_tileSetTexture, new Vector2(x * _tileWidth, y * _tileHeight) * scale, _tiles[index], Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(_tileSetTexture, new Vector2(x * _tileWidth, y * _tileHeight) * scale, _tiles[index], Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, -100f); //layer depth > 1 and < 0 causes this to not appear
                 }
             }
         }

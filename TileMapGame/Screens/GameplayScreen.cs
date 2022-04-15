@@ -96,7 +96,7 @@ namespace TileMapGame.Screens
            
 
             spriteBatch.Begin();
-            //ScreenManager._tilemap.Draw(gameTime, spriteBatch);
+            ScreenManager._tilemap.Draw(gameTime, spriteBatch); //not sure why this draws over everything
             cube.Draw();
             spriteBatch.DrawString(font, text, new Vector2(2*viewport.Width/3, 150), Color.White);
             spriteBatch.End();
