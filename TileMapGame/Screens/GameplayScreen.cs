@@ -19,6 +19,7 @@ namespace TileMapGame.Screens
 
         private float _pauseAlpha;
         private readonly InputAction _pauseAction;
+        Cube cube;
 
         public GameplayScreen()
         {
@@ -37,8 +38,8 @@ namespace TileMapGame.Screens
             if (_content == null)
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
             var viewport = ScreenManager.Game.GraphicsDevice.Viewport;
-            
-            
+            Game game = ScreenManager.Game;
+            cube = new Cube(game);
             ScreenManager.Game.ResetElapsedTime();
 
         }
@@ -56,7 +57,7 @@ namespace TileMapGame.Screens
 
             if (IsActive)
             {
-                
+                cube.Update(gameTime);
             }
         }
 
@@ -95,7 +96,8 @@ namespace TileMapGame.Screens
            
 
             spriteBatch.Begin();
-            ScreenManager._tilemap.Draw(gameTime, spriteBatch);
+            //ScreenManager._tilemap.Draw(gameTime, spriteBatch);
+            cube.Draw();
             spriteBatch.DrawString(font, text, new Vector2(2*viewport.Width/3, 150), Color.White);
             spriteBatch.End();
 

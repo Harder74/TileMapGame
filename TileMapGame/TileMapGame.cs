@@ -23,8 +23,8 @@ namespace TileMapGame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private readonly ScreenManager _screenManager;
-        
 
+        
 
         public TileMapGame()
         {
@@ -58,7 +58,7 @@ namespace TileMapGame
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+           
             // TODO: use this.Content to load your game content here
         }
 
